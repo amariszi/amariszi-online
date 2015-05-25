@@ -47,27 +47,25 @@ $(function(){
 	};
 	
 	var rotando= false;
-	$("#CIRCULO_PELADO, #ACRILICO_PRENDIDO, #ACRILICO_APAGADO").mousedown(function(event){
+	$("#CIRCULO_PELADO").bind("mousedown touchstart", function(event){
 		rotando = true;
-		angulo_mouse_down = get_angulo_mouse(event.clientX, event.clientY);
-		$("#CIRCULO_PELADO, #ACRILICO_PRENDIDO, #ACRILICO_APAGADO").attr("class", "rotando");
+		console.log(event);
+		angulo_mouse_down = get_angulo_mouse(event.offsetX, event.offsetY);
+		$("#CIRCULO_PELADO").attr("class", "rotando");
 	});
 	
-	$("#tablero").mousemove(function(event){
+	$("#tablero").bind("mousemove touchmove", function(event){
 		if(rotando)
 		{	
-			rotacion = get_angulo_mouse(event.clientX, event.clientY) - angulo_mouse_down;
+			rotacion = get_angulo_mouse(event.offsetX, event.offsetY) - angulo_mouse_down;
 			console.log(rotacion);
-			$("#ACRILICO_APAGADO").attr("transform", "rotate("+ rotacion +" 354.33 354.33)");
-			$("#ACRILICO_PRENDIDO").attr("transform", "rotate("+ rotacion +" 354.33 354.33)");
-	//		$("#agueritos").attr("transform", "rotate("+ rotacion +" 354.33 354.33)");
 			$("#CIRCULO_PELADO").attr("transform", "rotate("+ rotacion +" 354.33 354.33)");
 		}		
 	});
 	
 	
-	$("#tablero").mouseup(function(){
+	$("#tablero").bind("mouseup touchend", function(){
 		rotando = false;
-		$("#CIRCULO_PELADO, #ACRILICO_PRENDIDO, #ACRILICO_APAGADO").attr("class","");
+		$("#CIRCULO_PELADO").attr("class","");
 	});
 });
