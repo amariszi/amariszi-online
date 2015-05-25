@@ -49,7 +49,6 @@ $(function(){
 	var rotando= false;
 	$("#CIRCULO_PELADO").bind("mousedown touchstart", function(event){
 		rotando = true;
-		console.log(event);
 		angulo_mouse_down = get_angulo_mouse(event.offsetX, event.offsetY);
 		$("#CIRCULO_PELADO").attr("class", "rotando");
 	});
@@ -58,7 +57,6 @@ $(function(){
 		if(rotando)
 		{	
 			rotacion = get_angulo_mouse(event.offsetX, event.offsetY) - angulo_mouse_down;
-			console.log(rotacion);
 			$("#CIRCULO_PELADO").attr("transform", "rotate("+ rotacion +" 354.33 354.33)");
 		}		
 	});
