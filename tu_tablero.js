@@ -14,6 +14,7 @@ $(function(){
 		$("#BOTON").show();
 	});
 	var rotacion = 0;
+	var rotacion_mouse_down = 0;
 	var x_centro = 354.33;
 	var y_centro = 354.33;	
 	var dist_al_centro;	
@@ -50,13 +51,14 @@ $(function(){
 	$("#CIRCULO_PELADO").bind("mousedown touchstart", function(event){
 		rotando = true;
 		angulo_mouse_down = get_angulo_mouse(event.offsetX, event.offsetY);
+		rotacion_mouse_down = rotacion;
 		$("#CIRCULO_PELADO").attr("class", "rotando");
 	});
 	
 	$("#tablero").bind("mousemove touchmove", function(event){
 		if(rotando)
 		{	
-			rotacion = get_angulo_mouse(event.offsetX, event.offsetY) - angulo_mouse_down;
+			rotacion = rotacion_mouse_down + get_angulo_mouse(event.offsetX, event.offsetY) - angulo_mouse_down;
 			$("#CIRCULO_PELADO").attr("transform", "rotate("+ rotacion +" 354.33 354.33)");
 		}		
 	});

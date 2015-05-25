@@ -10,9 +10,13 @@ svg{
 	right: 10px;
 }
 
-#CIRCULO_PELADO, #ACRILICO_PRENDIDO, #ACRILICO_APAGADO{
+#CIRCULO_PELADO{
 	cursor: -webkit-grab;
 }
-#CIRCULO_PELADO.rotando, #ACRILICO_PRENDIDO.rotando, #ACRILICO_APAGADO.rotando{
+#CIRCULO_PELADO.rotando{
 	cursor: -webkit-grabbing;
+}
+
+#BOTON, #BOTON_PRESIONADO{
+	cursor: pointer;
 }
