@@ -1,0 +1,18 @@
+svg{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#rota{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+#CIRCULO_PELADO, #ACRILICO_PRENDIDO, #ACRILICO_APAGADO{
+	cursor: -webkit-grab;
+}
+#CIRCULO_PELADO.rotando, #ACRILICO_PRENDIDO.rotando, #ACRILICO_APAGADO.rotando{
+	cursor: -webkit-grabbing;
+}
