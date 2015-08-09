@@ -1,0 +1,23 @@
+svg{
+	height: 100%;
+	width: 100%;
+}
+
+#contenedor_tablero{
+	position: absolute;
+	top: 10px;
+	bottom: 10px;
+	left: 10px;
+	right: 50%;
+}
+
+#CIRCULO_PELADO{
+	cursor: -webkit-grab;
+}
+#CIRCULO_PELADO.rotando{
+	cursor: -webkit-grabbing;
+}
+
+#BOTON, #BOTON_PRESIONADO{
+	cursor: pointer;
+}
