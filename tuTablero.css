@@ -1,13 +1,14 @@
 svg{
-	position: absolute;
-	left: 0px;
-	top: 0px;
+	height: 100%;
+	width: 100%;
 }
 
-#rota{
+#contenedor_tablero{
 	position: absolute;
+	top: 10px;
 	bottom: 10px;
-	right: 10px;
+	left: 10px;
+	right: 50%;
 }
 
 #CIRCULO_PELADO{
