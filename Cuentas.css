@@ -1,0 +1,19 @@
+#plantillas {
+	display: none;
+}
+
+.vista_movimiento #producto{
+	display: inline-block;
+}
+
+.vista_movimiento #cantidad{
+	display: inline-block;
+}
+
+.vista_movimiento #origen{
+	display: inline-block;
+}
+
+.vista_movimiento #destino{
+	display: inline-block;
+}
