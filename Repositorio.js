@@ -23,8 +23,8 @@ var Repositorio = {
 		];
 	},
 	_movimientos: [
-		{id:1, producto:1, cantidad: 150, origen: 1, destino: 7},
-		{id:2, producto:5, cantidad: 100, origen: 7, destino: 9}
+		{id:1, fecha: "20/11", producto:1, cantidad: 150, origen: 1, destino: 7},
+		{id:2, fecha: "20/11", producto:5, cantidad: 100, origen: 7, destino: 9}
 	],
 	movimientos: function(){
 		var _this = this;

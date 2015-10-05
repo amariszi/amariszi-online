@@ -2,6 +2,15 @@
 	display: none;
 }
 
+.vista_movimiento{
+	margin: 5px;
+	background-color: aquamarine;
+	height: 30px;
+	padding: 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+
 .vista_movimiento #producto{
 	display: inline-block;
 }
@@ -16,4 +25,28 @@
 
 .vista_movimiento #destino{
 	display: inline-block;
+}
+
+#titulo_movimientos{
+	font-weight: bold;
+	font-size: 18;
+	position: absolute;
+}
+
+#movimientos{
+	position: absolute;
+	top:30px;
+	left: 0px;
+	right: 0px;
+	bottom: 50px;
+	overflow-y: auto;
+	margin: 5px;
+}
+
+#panel_alta_movimiento{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	margin:5px;
 }
