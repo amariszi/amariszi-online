@@ -19,11 +19,7 @@
 	display: inline-block;
 }
 
-.vista_movimiento #origen{
-	display: inline-block;
-}
-
-.vista_movimiento #destino{
+.vista_movimiento #caja{
 	display: inline-block;
 }
 
