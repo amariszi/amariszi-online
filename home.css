@@ -1,0 +1,21 @@
+body{
+    background-color:black;
+}
+
+#barra_superior{
+    height: 150px;
+    background-color: #352E2E;
+}
+
+#barra_superior .titulo{
+    font-size: 60px;
+    color: white;
+}
+
+#saludo{
+    color: white;    
+}
+
+#titulo_productos{
+    color: white;    
+}
