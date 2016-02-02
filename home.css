@@ -1,21 +1,20 @@
 body{
     background-color:black;
 }
-
-#barra_superior{
-    height: 150px;
-    background-color: #352E2E;
+#fondo{
+    width: 100%;    
 }
 
-#barra_superior .titulo{
-    font-size: 60px;
-    color: white;
+#linkFacebook{
+    position:absolute;
+    right:50px;
+    top:50px;
+    width:100px;
 }
-
-#saludo{
-    color: white;    
+#linkFacebook img{
+    width:100px;
 }
-
-#titulo_productos{
-    color: white;    
+#linkFacebook img:hover{
+    -webkit-filter: drop-shadow(0px 0px 10px white);
+    filter: url(shadow.svg#drop-shadow);
 }
