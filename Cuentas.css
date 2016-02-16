@@ -2,7 +2,7 @@
 	display: none;
 }
 
-.vista_movimiento{
+#eventos .evento{
 	margin: 5px;
 	background-color: aquamarine;
 	height: 30px;
@@ -11,29 +11,29 @@
 	border-radius: 5px;
 }
 
-.vista_movimiento #producto{
+#eventos .evento #titulo{
+	font-size: 14px;	
+}
+
+#eventos .pedido #producto{
 	display: inline-block;
 }
 
-.vista_movimiento #cantidad{
+#eventos .pedido #cantidad{
 	display: inline-block;
 }
 
-.vista_movimiento #origen{
+#eventos .pedido #cliente{
 	display: inline-block;
 }
 
-.vista_movimiento #destino{
-	display: inline-block;
-}
-
-#titulo_movimientos{
+#titulo_eventos{
 	font-weight: bold;
 	font-size: 18;
 	position: absolute;
 }
 
-#movimientos{
+#eventos{
 	position: absolute;
 	top:30px;
 	left: 0px;
@@ -41,12 +41,4 @@
 	bottom: 50px;
 	overflow-y: auto;
 	margin: 5px;
-}
-
-#panel_alta_movimiento{
-	position: absolute;
-	left: 0px;
-	right: 0px;
-	bottom: 0px;
-	margin:5px;
 }

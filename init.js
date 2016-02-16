@@ -1,0 +1,1 @@
+File.eval("blink.js");
