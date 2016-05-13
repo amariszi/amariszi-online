@@ -1,4 +1,19 @@
 var Repositorio = {
+	start: function(){
+		var _this = this;
+		Vx.when({tipoDeMensaje: "buscarEventos"}, function(mensaje){
+			Vx.send({
+				responseTo: mensaje.idRequest,
+				eventos: _this.buscarEventos(mensaje.filtro)
+			});
+		});	
+		Vx.when({tipoDeMensaje: "agregarEvento"}, function(mensaje){
+			Vx.send({
+				responseTo: mensaje.idRequest,
+				idEvento: _this.agregarEvento(mensaje.evento)
+			});
+		});	
+	},
     _cajas: [
         {id:1, owner: 1, nombre:"Caja Chica"},
         {id:2, owner: 1, nombre:"MercadoPago"},
@@ -37,24 +52,34 @@ var Repositorio = {
 			{id:5, nombre:"Bulonera GATA"},
 			{id:5, nombre:"Easy"}			
 		];
+	},	
+	tiposDeEvento: function(){
+		return [
+			{id:1, nombre:"AmariSzi"},
+			{id:2, nombre:"Charles"},
+			{id:3, nombre:"Jero"},
+			{id:4, nombre:"Mayra"},
+			{id:5, nombre:"Bulonera GATA"},
+			{id:5, nombre:"Easy"}			
+		];
 	},
-	_movimientos: [
-		{id:1, fecha: "20/11", producto:1, cantidad: 150, caja: 1},
+	_eventos: [
+		{id:1, fecha: "20/11/2015", nombre: "", producto:1, cantidad: 150, caja: 1},
 		{id:2, fecha: "20/11", producto:5, cantidad: 100, caja: 7}
 	],
-	buscarMovimientos: function(){
+	buscarEventos: function(filtro){
 		var _this = this;
-		return this._movimientos.map(function(mov){
+		return this._eventos.map(function(ev){
 			return {
-				id:mov.id, 
-				producto: _.findWhere(_this.productos(), {id: mov.producto}),
-				cantidad: mov.cantidad,
-				caja: _.findWhere(_this.cajas(), {id: mov.caja})				
+				id:ev.id, 
+				producto: _.findWhere(_this.productos(), {id: ev.producto}),
+				cantidad: ev.cantidad,
+				caja: _.findWhere(_this.cajas(), {id: ev.caja})				
 			};
 		});
 	},
-	agregarMovimiento: function(mov){
-		mov.id=_.max(this._movimientos, "id");
-		this._movimientos.push(mov);
+	agregarEvento: function(ev){
+		ev.id=_.max(this._eventos, "id");
+		this._eventos.push(ev);
 	}
 }

@@ -11,7 +11,7 @@ $(function(){
 //		});
 //		VistaMovimientos.dibujar();
 //	});
-	Vx.conectarCon(new NodoConectorSocket('http://localhost:3000'));
+	//Vx.conectarCon(new NodoConectorSocket('http://localhost:3000'));
 	Vx.when({tipoDeMensaje:"vortex.debug.error"}, function(m){console.log(m);})
 	VistaEventos.start();
 });
@@ -23,16 +23,14 @@ var VistaEventos = {
 	dibujar: function(filtro){
 		var _this = this;
 		$("#eventos").empty();
-		setTimeout(function(){
-			Vx.send({
-				tipoDeMensaje: "buscarEventos",
-				filtro: filtro
-			}, function(respuesta){
-				_.forEach(respuesta.eventos, function(evento){
-					_this.dibujarEvento(evento);
-				});
+		Vx.send({
+			tipoDeMensaje: "buscarEventos",
+			filtro: filtro
+		}, function(respuesta){
+			_.forEach(respuesta.eventos, function(evento){
+				_this.dibujarEvento(evento);
 			});
-		}, 200);	
+		});
 	},
 	dibujarEvento: function(evento){
 		var vista_evento = $("#plantillas .evento").clone();
