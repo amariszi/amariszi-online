@@ -64,19 +64,10 @@ var Repositorio = {
 		];
 	},
 	_eventos: [
-		{id:1, fecha: "20/11/2015", nombre: "", producto:1, cantidad: 150, caja: 1},
-		{id:2, fecha: "20/11", producto:5, cantidad: 100, caja: 7}
+		{id:1, fecha: "20/11/2015", nombre: "nuevoPedido", pedido: {producto:"valija", cantidad: 1, cliente: {nombre:"anibal", apellido: "polari"}},
 	],
 	buscarEventos: function(filtro){
-		var _this = this;
-		return this._eventos.map(function(ev){
-			return {
-				id:ev.id, 
-				producto: _.findWhere(_this.productos(), {id: ev.producto}),
-				cantidad: ev.cantidad,
-				caja: _.findWhere(_this.cajas(), {id: ev.caja})				
-			};
-		});
+		return _.findWhere(this._eventos, filtro);
 	},
 	agregarEvento: function(ev){
 		ev.id=_.max(this._eventos, "id");
