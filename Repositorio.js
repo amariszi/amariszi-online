@@ -1,85 +1,31 @@
+var Datos = {
+	procesos:[
+		{id:1, tipo:"compra"},
+		{id:2, tipo:"fresado canaletas"},
+		{id:3, tipo:"pintado"},
+		{id:4, tipo:"venta"}
+	]	
+}
+
 var Repositorio = {
 	start: function(){
 		var _this = this;
-		Vx.when({tipoDeMensaje: "buscarEventos"}, function(mensaje){
-			Vx.send({
-				responseTo: mensaje.idRequest,
-				eventos: _this.buscarEventos(mensaje.filtro)
+		Vx.when({tipoDeMensaje: "buscarProcesos"}, function(mensaje, req){
+			req.send({
+				procesos: Datos.procesos
 			});
 		});	
-		Vx.when({tipoDeMensaje: "agregarEvento"}, function(mensaje){
-			Vx.send({
-				responseTo: mensaje.idRequest,
-				idEvento: _this.agregarEvento(mensaje.evento)
+		Vx.when({tipoDeMensaje: "agregarProceso"}, function(mensaje, req){
+			req.send({
+				idProceso: _this.agregarProceso(mensaje.proceso)
 			});
 		});	
-	},
-    _cajas: [
-        {id:1, owner: 1, nombre:"Caja Chica"},
-        {id:2, owner: 1, nombre:"MercadoPago"},
-        {id:3, owner: 1, nombre:"Banco Nacion"},
-        {id:4, owner: 2, nombre:"Stock"},
-        {id:5, owner: 3, nombre:"Stock"},
-        {id:6, owner: 4, nombre:"Stock"},
-        {id:7, owner: 5, nombre:"Stock"},
-        {id:8, owner: 6, nombre:"Stock"},
-        {id:9, owner: 1, nombre:"Stock"}
-    ],
-	cajas: function(){
-		var _this = this;
-		return this._cajas.map(function(c){
-            var caja = _.clone(c);
-            caja.owner = _.findWhere(_this.entes(), {id: c.owner});            
-			return caja;
-		});
-	},
-	productos: function(){
-		return [
-			{id:1, nombre:"Peso Argentino"},
-			{id:2, nombre:"Dolar"},
-			{id:3, nombre:"Tablero Valija"},
-			{id:4, nombre:"Tablero Lite A4"},
-			{id:5, nombre:"Tira led 3528"},
-			{id:5, nombre:"Tornillo Autoperforante Negro"}			
-		];
-	},
-    entes: function(){
-		return [
-			{id:1, nombre:"AmariSzi"},
-			{id:2, nombre:"Charles"},
-			{id:3, nombre:"Jero"},
-			{id:4, nombre:"Mayra"},
-			{id:5, nombre:"Bulonera GATA"},
-			{id:5, nombre:"Easy"}			
-		];
-	},	
-	tiposDeEvento: function(){
-		return [
-			{id:1, nombre:"AmariSzi"},
-			{id:2, nombre:"Charles"},
-			{id:3, nombre:"Jero"},
-			{id:4, nombre:"Mayra"},
-			{id:5, nombre:"Bulonera GATA"},
-			{id:5, nombre:"Easy"}			
-		];
-	},
-	_eventos: [
-		{id:1, fecha: "20/11/2015", nombre: "", producto:1, cantidad: 150, caja: 1},
-		{id:2, fecha: "20/11", producto:5, cantidad: 100, caja: 7}
-	],
-	buscarEventos: function(filtro){
-		var _this = this;
-		return this._eventos.map(function(ev){
-			return {
-				id:ev.id, 
-				producto: _.findWhere(_this.productos(), {id: ev.producto}),
-				cantidad: ev.cantidad,
-				caja: _.findWhere(_this.cajas(), {id: ev.caja})				
-			};
-		});
-	},
-	agregarEvento: function(ev){
-		ev.id=_.max(this._eventos, "id");
-		this._eventos.push(ev);
+	},   
+	agregarProceso: function(p){
+		p.id=_.max(Datos.procesos, "id")+1;
+		Datos.procesos.push(p);
+		return p.id;
 	}
-}
+};
+
+Repositorio.start();

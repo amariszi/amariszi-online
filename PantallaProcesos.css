@@ -1,0 +1,19 @@
+#btn_agregar_proceso{
+	position: absolute;
+    right: 6px;
+    top: 6px;
+    height: 26px;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+
+#listado_procesos{
+	position: absolute;
+	top:40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow-y: auto;
+	margin: 5px;
+}
