@@ -5,10 +5,13 @@ var PantallaProcesos = {
 		$("#btn_agregar_proceso").click(function(){
 			var proceso = {tipo:"nuevo"};
 			Vx.send({
-				tipoDeMensaje: "agregarProceso",
-				proceso:proceso
+				tipoDeMensaje: "amz.agregarProceso",
+				proceso: proceso
 			}, function(respuesta){
 				_this.dibujarProceso(proceso);
+				PantallaEdicionProceso.dibujar(proceso, function(){
+					_this.dibujar();
+				});
 			});
 		});
 	},
@@ -16,7 +19,7 @@ var PantallaProcesos = {
 		var _this = this;
 		$("#listado_procesos").empty();
 		Vx.send({
-			tipoDeMensaje: "buscarProcesos",
+			tipoDeMensaje: "amz.buscarProcesos",
 			filtro: filtro
 		}, function(respuesta){
 			_.forEach(respuesta.procesos, function(proceso){

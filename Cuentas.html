@@ -5,6 +5,7 @@
         
         <link rel="stylesheet" href="Cuentas.css">
 		<link rel="stylesheet" href="PantallaProcesos.css">
+		<link rel="stylesheet" href="PantallaEdicionProceso.css">
 		<link href="select2.min.css" rel="stylesheet" />
 		<title>Cuentas</title>
 	</head>
@@ -12,9 +13,21 @@
 		<div id=pantalla_procesos class=pantalla>
 			<div id=barra_superior_procesos class="barra_superior">
 				<div id="titulo_procesos" class="titulo"> Procesos</div>	
-				<input id="btn_agregar_proceso" type="button" value=+>
+				<div id="btn_agregar_proceso" class="btn_agregar" type="button">+</div>
 			</div>
 			<div id="listado_procesos" class=listado> 
+			</div>
+		</div>
+		<div id=pantalla_edicion_proceso class=pantalla>
+			<div id=barra_superior_proceso class="barra_superior"> 
+				<input id=txt_tipo_proceso placeholder="PROCESO" type="text">
+				<div id="btn_cerrar" class="btn_agregar" type="button">x</div>
+			</div>
+			<div id=panel_entrada_proceso>
+				<div id="titulo_panel_entrada">Entrada</div>
+			</div>
+			<div id=panel_salida_proceso>
+				<div id="titulo_panel_salida">Salida</div>
 			</div>
 		</div>
 	</body>
@@ -33,4 +46,5 @@
     <script type="text/javascript" src="Cuentas.js"></script> 
     <script type="text/javascript" src="Repositorio.js"></script> 
     <script type="text/javascript" src="PantallaProcesos.js"></script> 
+    <script type="text/javascript" src="PantallaEdicionProceso.js"></script> 
 </html>
