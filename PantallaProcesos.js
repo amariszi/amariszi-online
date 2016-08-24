@@ -28,8 +28,14 @@ var PantallaProcesos = {
 		});
 	},
 	dibujarProceso: function(proceso){
+        var _this = this;
 		var vista_proceso = $("#plantillas .vista_proceso").clone();
 		vista_proceso.find("#tipo").text(proceso.tipo);
 		$("#listado_procesos").append(vista_proceso);
+        vista_proceso.click(function(){
+            PantallaEdicionProceso.dibujar(proceso, function(){
+                _this.dibujar();
+            });
+        });
 	}
 };

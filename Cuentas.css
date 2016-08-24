@@ -12,21 +12,34 @@ html{
     top: 0px;
     left: 0px;
     right: 0px;
-    height: 40px;
+    height: 39px;
+    border-bottom: solid white 1px;
 }
 
 .barra_superior .titulo{
-	font-weight: bold;
     font-size: 24px;
-    position: absolute;
-    top: 6px;
-    left: 20px;
+    display: inline-block;
+    width: 150px;
+    text-align:center;
+    padding-top: 5px;
+    height: 100%;
+    box-sizing: border-box;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.barra_superior .seleccionado{
+	font-weight: bold;
+}
+
+.barra_superior .titulo:hover{
+    background-color: #ffd280;    
 }
 
 .btn_agregar{
     position: absolute;
     right: 3px;
-    top: 3px;
+    bottom: 3px;
     height: 33px;
     width: 33px;
     border-radius: 50%;
@@ -37,4 +50,44 @@ html{
     /* vertical-align: top; */
     cursor: pointer;
     padding-top: -10px;
+}
+
+.btn_cerrar{
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: red;
+    text-align: center;
+    /* vertical-align: top; */
+    cursor: pointer;
+    padding-top: -10px;
+}
+
+.listado{
+	position: absolute;
+	top:40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow-y: auto;
+}
+
+.elemento_lista{
+    background-color: #ffc800;
+    border-bottom: dashed white 1px;
+    height: 30px;
+    box-sizing: border-box;
+    padding-top: 6px;
+    padding-left: 5px;
+    cursor:pointer;
+    transition: 0.5s ease;
+}
+
+.elemento_lista:hover{
+    background-color: orange;
 }
