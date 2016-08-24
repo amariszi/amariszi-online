@@ -1,0 +1,9 @@
+#listado_procesos{
+	position: absolute;
+	top:40px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	overflow-y: auto;
+	margin: 5px;
+}
