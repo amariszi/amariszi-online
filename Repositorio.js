@@ -64,7 +64,26 @@ var Repositorio = {
 		];
 	},
 	_eventos: [
-		{id:1, fecha: "20/11/2015", nombre: "nuevoPedido", pedido: {producto:"valija", cantidad: 1, cliente: {nombre:"anibal", apellido: "polari"}},
+		{
+            id:1, 
+            fecha: "20/11/2015", 
+            nombre: "nuevoPedido", 
+            pedido: {
+            producto:"tablero valija", 
+            cantidad: 1, 
+            precio: 2100, 
+            canalDeVentas: "mercadolibre", 
+            envio: {
+                precio: 115,
+                medio: "correo Argentino",
+                modalidad: "puerta a puerta",
+                direccionEntrega: "san cachufla 231 CABA"
+            },
+            cliente: {
+                nombre:"lis", 
+                apellido: "apan"
+            }
+        }
 	],
 	buscarEventos: function(filtro){
 		return _.findWhere(this._eventos, filtro);
