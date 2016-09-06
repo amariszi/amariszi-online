@@ -19,3 +19,23 @@
     font-size: 18px;
     font-weight: bold;
 }
+
+#txt_tipo_item_inventario{
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+    background-color: rgba(250, 235, 215, 0);
+    border: 0px;
+    height: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#contenedor_atributos_item_inventario{
+    position: absolute;
+    top:3em;
+    left:0px;
+    right:0px;
+    bottom: 0px;
+}

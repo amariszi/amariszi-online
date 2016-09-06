@@ -1,0 +1,29 @@
+.nombre_atributo{
+    position: absolute;
+    top: 13px;
+    right: 71%;
+    color: #564f4f;
+    font-size: 20px;
+}
+.lbl_valor_atributo{
+    position: absolute;
+    top: 16px;
+    left: 31%;
+}
+.txt_valor_atributo{
+    position: absolute;
+    top: 1px;
+    left: 31%;
+    display: none;
+    width: 68%;
+    background-color: #c8c8c8;
+    border: none;
+    font-size: 18px;
+    height: 99%;
+}
+
+.atributo_editable{
+    background-color: lightgray;   
+    position: relative;
+    border-bottom: dashed 1px white;
+}

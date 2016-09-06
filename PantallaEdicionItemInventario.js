@@ -17,6 +17,27 @@ var PantallaEdicionItemInventario = {
 					 }
 			});
 		});
+        
+        this.ctrl_cantidad = new AtributoEditable(this.ui.find("#cantidad"), function(valor_nuevo){
+            Vx.send({
+				tipoDeMensaje:"amz.actualizarItemInventario", 
+					 item:{
+						 id: _this.item.id, 
+						 cantidad: valor_nuevo
+					 }
+			});
+        });
+      
+        this.ctrl_unidad = new AtributoEditable(this.ui.find("#unidad"), function(valor_nuevo){
+            Vx.send({
+				tipoDeMensaje:"amz.actualizarItemInventario", 
+					 item:{
+						 id: _this.item.id, 
+						 unidad: valor_nuevo
+					 }
+			});
+        });
+      
 	},
 	dibujar: function(item, cb_cerrar){
 		this.item = item;
@@ -24,5 +45,7 @@ var PantallaEdicionItemInventario = {
 		var _this = this;
 		this.ui.show();
 		this.txt_tipo_item.val(item.tipo);
+        this.ctrl_cantidad.val(item.cantidad);
+        this.ctrl_unidad.val(item.unidad);
 	}    
 };

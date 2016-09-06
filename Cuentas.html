@@ -8,11 +8,12 @@
 		<link rel="stylesheet" href="PantallaEdicionProceso.css">
         <link rel="stylesheet" href="PantallaInventario.css">
 		<link rel="stylesheet" href="PantallaEdicionItemInventario.css">
+		<link rel="stylesheet" href="AtributoEditable.css">
 		<link href="select2.min.css" rel="stylesheet" />
 		<title>Cuentas</title>
 	</head>
 	<body>
-        <div id=barra_superior class="barra_superior">
+        <div id=barra_superior class="barra_superior alto_pulgar">
             <div id="titulo_procesos" class="titulo seleccionado"> Procesos</div>
             <div id="titulo_inventario" class="titulo"> Inventario</div>
         </div>
@@ -22,7 +23,7 @@
             <div id="btn_agregar_proceso" class="btn_agregar" type="button">+</div>
 		</div>
 		<div id=pantalla_edicion_proceso class=pantalla>
-			<div id=barra_superior_proceso class="barra_superior"> 
+			<div id=barra_superior_proceso class="barra_superior alto_pulgar"> 
 				<input id=txt_tipo_proceso placeholder="PROCESO" type="text">
 				<div id="btn_cerrar" class="btn_cerrar" type="button">x</div>
 			</div>
@@ -39,18 +40,34 @@
             <div id="btn_agregar_item" class="btn_agregar" type="button">+</div>
 		</div>
         <div id=pantalla_edicion_item_inventario class=pantalla>
-			<div id=barra_superior_item_inventario class="barra_superior"> 
+			<div id=barra_superior_item_inventario class="barra_superior alto_pulgar"> 
 				<input id=txt_tipo_item_inventario placeholder="ITEM" type="text">
 				<div id="btn_cerrar" class="btn_cerrar" type="button">x</div>
+                <div id="contenedor_atributos_item_inventario">
+                    <div id="cantidad" class="atributo_editable">
+                        Cantidad:
+                    </div>
+                    <div id="unidad" class="atributo_editable">
+                        Unidad:
+                    </div>
+                </div>
 			</div>
 		</div>
 	</body>
 	<div id="plantillas">
-		<div class="vista_proceso elemento_lista">
+		<div class="vista_proceso elemento_lista alto_pulgar">
 			<div id="tipo"></div>
 		</div>
-        <div class="vista_item_inventario elemento_lista">
+        <div class="vista_item_inventario elemento_lista alto_pulgar">
 			<div id="tipo"></div>
+		</div>
+        <div id="plantilla_AtributoEditable" class="atributo_editable alto_pulgar">
+			<div class="nombre_atributo">
+                NOMBRE_EJEMPLO
+            </div>
+            <div class="lbl_valor_atributo">
+            </div>
+            <input class="txt_valor_atributo" type="text"/> 
 		</div>
 	</div>
 	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
@@ -59,7 +76,10 @@
 	<script type="text/javascript" src="vortex.min.js"></script> 
 	<script type="text/javascript" src="snap.svg-min.js"></script> 
 	<script type="text/javascript" src="select2.min.js"></script>
+    <script type="text/javascript" src="hammer.min.js"></script>
 
+	<script type="text/javascript" src="AtributoEditable.js"></script>
+    
     <script type="text/javascript" src="Cuentas.js"></script> 
     <script type="text/javascript" src="Repositorio.js"></script> 
     <script type="text/javascript" src="BarraSuperior.js"></script> 
