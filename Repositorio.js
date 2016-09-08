@@ -1,9 +1,9 @@
 var Datos = {
 	procesos:[
-		{id:1, tipo:"compra"},
-		{id:2, tipo:"fresado canaletas"},
-		{id:3, tipo:"pintado"},
-		{id:4, tipo:"venta"}
+		{id:1, tipo:"compra", fecha:"20/11/2015"},
+		{id:2, tipo:"fresado canaletas", fecha:"21/11/2015"},
+		{id:3, tipo:"pintado", fecha:"22/11/2015"},
+		{id:4, tipo:"venta", fecha:"23/11/2015"}
 	],
     itemsInventario:[
 		{id:1, tipo:"tablero valija", cantidad:1},

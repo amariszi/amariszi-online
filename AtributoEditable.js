@@ -1,4 +1,4 @@
-var AtributoEditable = function(ui_original, al_modificar){
+var AtributoEditable = function(ui_original, al_modificar, tipo){
     var self = this;
 	
 	self.ui = $('#plantilla_AtributoEditable')
@@ -13,27 +13,47 @@ var AtributoEditable = function(ui_original, al_modificar){
 	
 	self.lbl = self.ui.find(".lbl_valor_atributo");
     self.txt = self.ui.find(".txt_valor_atributo");
-    self.txt.bind('keypress', function(e) {
-        var code = e.keyCode || e.which;
-        if(code==13){
+    
+    if(tipo == "fecha"){
+        self.txt.pickadate({
+            format: 'dd/mm/yyyy',
+            formatSubmit: 'dd/mm/yyyy'
+        });
+        self.txt.change('keypress', function(e) {
             self.lbl.show();
             self.txt.hide();
             self.lbl.text(self.txt.val());
             al_modificar(self.txt.val());            
-        }
-    });
-    self.txt.blur(function(){
-        self.lbl.show();
-        self.txt.hide();
-        self.lbl.text(self.txt.val());
-        al_modificar(self.txt.val());         
-    });
-    new Hammer(self.ui[0]).on('press', function(ev) {
-        self.lbl.hide();
-        self.txt.show();
-        self.txt.focus();
-    });
-	
+        });
+        new Hammer(self.ui[0]).on('press', function(ev) {
+            self.lbl.hide();
+            self.txt.show();
+        });
+    }
+    else
+    {
+        self.txt.bind('keypress', function(e) {
+            var code = e.keyCode || e.which;
+            if(code==13){
+                self.lbl.show();
+                self.txt.hide();
+                self.lbl.text(self.txt.val());
+                al_modificar(self.txt.val());            
+            }
+        });
+        self.txt.blur(function(){
+            self.lbl.show();
+            self.txt.hide();
+            self.lbl.text(self.txt.val());
+            al_modificar(self.txt.val());         
+        });
+        new Hammer(self.ui[0]).on('press', function(ev) {
+            self.lbl.hide();
+            self.txt.show();
+            self.txt.focus();
+        });
+    }
+        
 };
 
 AtributoEditable.prototype = {

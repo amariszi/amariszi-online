@@ -17,6 +17,17 @@ var PantallaEdicionProceso = {
 					 }
 			});
 		});
+        
+        this.ctrl_fecha = new AtributoEditable(this.ui.find("#fecha"), function(valor_nuevo){
+            Vx.send({
+				tipoDeMensaje:"amz.actualizarProceso", 
+					 proceso:{
+						 id: _this.proceso.id, 
+						 fecha: valor_nuevo
+					 }
+			});
+        }, "fecha");
+        
 	},
 	dibujar: function(proceso, cb_cerrar){
 		this.proceso = proceso;
@@ -24,5 +35,6 @@ var PantallaEdicionProceso = {
 		var _this = this;
 		this.ui.show();
 		this.txt_tipo_proceso.val(proceso.tipo);
+        this.ctrl_fecha.val(proceso.fecha);
 	}
 };

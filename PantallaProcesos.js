@@ -31,6 +31,7 @@ var PantallaProcesos = {
         var _this = this;
 		var vista_proceso = $("#plantillas .vista_proceso").clone();
 		vista_proceso.find("#tipo").text(proceso.tipo);
+		vista_proceso.find("#fecha").text(proceso.fecha);
 		$("#listado_procesos").append(vista_proceso);
         vista_proceso.click(function(){
             PantallaEdicionProceso.dibujar(proceso, function(){

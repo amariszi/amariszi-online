@@ -1,0 +1,18 @@
+.vista_proceso #fecha{
+    position: absolute;
+    top: 11px;
+    left: 9px;
+    background-color: orange;
+    height: 24px;
+    padding: 4px;
+    box-sizing: border-box;
+    width: 86px;
+    border-radius: 7px;
+}
+
+.vista_proceso #tipo{
+    position: absolute;
+    top: 11px;
+    left: 101px;
+    font-size: 20px;
+}
