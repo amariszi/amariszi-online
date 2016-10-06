@@ -16,3 +16,29 @@
     left: 101px;
     font-size: 20px;
 }
+
+#panel_entrada_proceso{
+    height: 40%;
+    background-color: lightgrey;
+    border-bottom: dashed 1px white;
+    position: relative;
+}
+
+#titulo_panel_entrada{    
+    height: 28px;
+    padding: 5px;
+    box-sizing: border-box;  
+}
+
+#panel_salida_proceso{
+    height: 40%;  
+    background-color: lightgrey;
+    position: relative;
+    border-bottom: dashed 1px white;
+}
+
+#titulo_panel_salida{
+    height: 28px;
+    padding: 5px;
+    box-sizing: border-box;  
+}

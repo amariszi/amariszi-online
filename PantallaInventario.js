@@ -1,8 +1,9 @@
 var PantallaInventario = {
 	start: function(){
 		var _this = this;
+        this.ui = $("#pantalla_inventario");
 		this.dibujar();
-		$("#btn_agregar_item").click(function(){
+		this.ui.find("#btn_agregar_item").click(function(){
 			var item = {tipo:"nuevo"};
 			Vx.send({
 				tipoDeMensaje: "amz.agregarItemInventario",
@@ -17,7 +18,7 @@ var PantallaInventario = {
 	},
 	dibujar: function(filtro){
 		var _this = this;
-		$("#listado_items_inventario").empty();
+		this.ui.find("#listado_items_inventario").empty();
 		Vx.send({
 			tipoDeMensaje: "amz.buscarItemsInventario",
 			filtro: filtro
@@ -31,11 +32,14 @@ var PantallaInventario = {
         var _this = this;
 		var vista_item = $("#plantillas .vista_item_inventario").clone();
 		vista_item.find("#tipo").text(item.tipo);
-		$("#listado_items_inventario").append(vista_item);
+		this.ui.find("#listado_items_inventario").append(vista_item);
         vista_item.click(function(){
             PantallaEdicionItemInventario.dibujar(item, function(){
                 _this.dibujar();
             });
         });
-	}
+	},
+    abrirPopupSeleccionItems: function(){
+        
+    }
 };

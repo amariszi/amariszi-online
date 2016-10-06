@@ -28,6 +28,19 @@ var PantallaEdicionProceso = {
 			});
         }, "fecha");
         
+        this.ui.find("#btn_agregar_item_a_entrada_proceso").click(function(){
+            var popUp = $(".pop_up").clone();
+            $("body").append(popUp);
+            popUp.find("#btn_cerrar").click(function(){
+                popUp.remove();
+            });
+            popUp.find("#contenido_popup").append();
+        });
+        
+        this.ui.find("#btn_agregar_item_a_salida_proceso").click(function(){
+            
+            
+        });
 	},
 	dibujar: function(proceso, cb_cerrar){
 		this.proceso = proceso;

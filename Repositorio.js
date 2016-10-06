@@ -6,9 +6,9 @@ var Datos = {
 		{id:4, tipo:"venta", fecha:"23/11/2015"}
 	],
     itemsInventario:[
-		{id:1, tipo:"tablero valija", cantidad:1},
-		{id:2, tipo:"tablero lite A4", cantidad:1},
-		{id:3, tipo:"tornillo negro corto", cantidad:100},
+		{id:1, tipo:"tablero valija", cantidad:1, unidad:"un"},
+		{id:2, tipo:"tablero lite A4", cantidad:1, unidad:"un"},
+		{id:3, tipo:"tornillo negro corto", cantidad:100, unidad:"un"},
 		{id:4, tipo:"pintura", cantidad:4, unidad:"litros"}
 	]	
 }
