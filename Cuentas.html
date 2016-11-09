@@ -51,9 +51,7 @@
             </div>        
 		</div>
         <div id=pantalla_inventario class=pantalla>
-			<div id="listado_items_inventario" class=listado> 
-			</div>
-            <div id="btn_agregar_item" class="btn_agregar" type="button">+</div>
+			
 		</div>
         <div id=pantalla_edicion_item_inventario class=pantalla>
 			<div id=barra_superior_item_inventario class="barra_superior alto_pulgar"> 
@@ -74,6 +72,7 @@
         <div class="pop_up">
             <div id="marco_popup">
                 <div id="btn_cerrar" class="btn_cerrar" type="button">x</div>
+                <div id="contenido"></div>
             </div>            
 		</div>
 		<div class="vista_proceso elemento_lista alto_pulgar">
@@ -90,7 +89,12 @@
             <div class="lbl_valor_atributo">
             </div>
             <input class="txt_valor_atributo" type="text"/> 
-		</div>        
+		</div>     
+        <div class="vista_inventario">
+            <div id="listado_items_inventario" class=listado> 
+			</div>
+            <div id="btn_agregar_item" class="btn_agregar" type="button">+</div>
+        </div>
 	</div>
 	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="underscore-min.js"></script> 
@@ -110,5 +114,7 @@
     <script type="text/javascript" src="PantallaProcesos.js"></script> 
     <script type="text/javascript" src="PantallaEdicionProceso.js"></script> 
     <script type="text/javascript" src="PantallaInventario.js"></script> 
+    <script type="text/javascript" src="PantallaPopUp.js"></script> 
+    <script type="text/javascript" src="VistaInventario.js"></script> 
     <script type="text/javascript" src="PantallaEdicionItemInventario.js"></script> 
 </html>

@@ -29,17 +29,19 @@ var PantallaEdicionProceso = {
         }, "fecha");
         
         this.ui.find("#btn_agregar_item_a_entrada_proceso").click(function(){
-            var popUp = $(".pop_up").clone();
-            $("body").append(popUp);
-            popUp.find("#btn_cerrar").click(function(){
-                popUp.remove();
+            var vista_inventario = new VistaInventario();
+            var pop = new PantallaPopUp(vista_inventario);
+            vista_inventario.alSeleccionar(function(item){
+                pop.cerrar();       
             });
-            popUp.find("#contenido_popup").append();
         });
         
         this.ui.find("#btn_agregar_item_a_salida_proceso").click(function(){
-            
-            
+            var vista_inventario = new VistaInventario();
+            var pop = new PantallaPopUp(vista_inventario);
+            vista_inventario.alSeleccionar(function(item){
+                pop.cerrar();       
+            });
         });
 	},
 	dibujar: function(proceso, cb_cerrar){
