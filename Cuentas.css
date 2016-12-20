@@ -57,6 +57,7 @@ html{
     /* vertical-align: top; */
     cursor: pointer;
     padding-top: -10px;
+    z-index: 1000;
 }
 
 .btn_cerrar{

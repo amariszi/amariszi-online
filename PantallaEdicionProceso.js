@@ -30,9 +30,16 @@ var PantallaEdicionProceso = {
         
         this.ui.find("#btn_agregar_item_a_entrada_proceso").click(function(){
             var vista_inventario = new VistaInventario();
-            var pop = new PantallaPopUp(vista_inventario);
+            var popEntrada = new PantallaPopUp(vista_inventario);
             vista_inventario.alSeleccionar(function(item){
-                pop.cerrar();       
+                var item_entrada = {
+                    item: item,
+                    cantidad: 0
+                };
+                _this.proceso.itemsEntrada.push(item_entrada);
+                var vista_item = new VistaItemEnProceso(item_entrada);
+                vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
+                popEntrada.cerrar();       
             });
         });
         

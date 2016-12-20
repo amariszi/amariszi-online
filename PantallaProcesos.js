@@ -3,7 +3,10 @@ var PantallaProcesos = {
 		var _this = this;
 		this.dibujar();
 		$("#btn_agregar_proceso").click(function(){
-			var proceso = {tipo:"nuevo"};
+			var proceso = {
+                tipo:"nuevo",
+                itemsEntrada:[]    
+            };
 			Vx.send({
 				tipoDeMensaje: "amz.agregarProceso",
 				proceso: proceso

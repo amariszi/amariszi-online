@@ -27,3 +27,32 @@
     left: 0px;
     right: 0px;
 }
+
+#contenedor_items_entrada_proceso{
+    overflow: auto;
+    position: absolute;
+    bottom: 0px;
+    top: 24px;
+    left: 0px;
+    right: 0px;
+}
+
+#contenedor_items_salida_proceso{
+    
+}
+
+.vista_item_en_proceso{
+    position: relative;
+}
+
+.vista_item_en_proceso #tipo{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+.vista_item_en_proceso #cantidad{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
