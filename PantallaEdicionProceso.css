@@ -38,7 +38,44 @@
 }
 
 #contenedor_items_salida_proceso{
-    
+    overflow: auto;
+    position: absolute;
+    bottom: 0px;
+    top: 24px;
+    left: 0px;
+    right: 0px;
+}
+
+#panel_entrada_proceso{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    top: 3em;
+    width: 50%;
+    background-color: lightgrey;
+    border-bottom: dashed 1px white;
+}
+
+#titulo_panel_entrada{    
+    height: 28px;
+    padding: 5px;
+    box-sizing: border-box;  
+}
+
+#panel_salida_proceso{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    top: 3em;
+    width: 50%;
+    background-color: lightgrey;
+    border-bottom: dashed 1px white;
+}
+
+#titulo_panel_salida{
+    height: 28px;
+    padding: 5px;
+    box-sizing: border-box;  
 }
 
 .vista_item_en_proceso{
@@ -56,3 +93,4 @@
     right: 10px;
     top: 10px;
 }
+

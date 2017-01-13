@@ -11,20 +11,15 @@ var PantallaEdicionProceso = {
 			_this.proceso.tipo = _this.txt_tipo_proceso.val();	
 			Vx.send({
 				tipoDeMensaje:"amz.actualizarProceso", 
-					 proceso:{
-						 id:_this.proceso.id, 
-						 tipo:_this.txt_tipo_proceso.val()
-					 }
+                proceso:_this.proceso
 			});
 		});
         
         this.ctrl_fecha = new AtributoEditable(this.ui.find("#fecha"), function(valor_nuevo){
+            _this.proceso.fecha = valor_nuevo;	
             Vx.send({
 				tipoDeMensaje:"amz.actualizarProceso", 
-					 proceso:{
-						 id: _this.proceso.id, 
-						 fecha: valor_nuevo
-					 }
+                proceso:_this.proceso
 			});
         }, "fecha");
         
@@ -39,15 +34,30 @@ var PantallaEdicionProceso = {
                 _this.proceso.itemsEntrada.push(item_entrada);
                 var vista_item = new VistaItemEnProceso(item_entrada);
                 vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
-                popEntrada.cerrar();       
+                popEntrada.cerrar();  
+                Vx.send({
+                    tipoDeMensaje:"amz.actualizarProceso", 
+                    proceso:_this.proceso
+                });
             });
         });
         
         this.ui.find("#btn_agregar_item_a_salida_proceso").click(function(){
             var vista_inventario = new VistaInventario();
-            var pop = new PantallaPopUp(vista_inventario);
+            var popEntrada = new PantallaPopUp(vista_inventario);
             vista_inventario.alSeleccionar(function(item){
-                pop.cerrar();       
+                var item_salida = {
+                    item: item,
+                    cantidad: 0
+                };
+                _this.proceso.itemsSalida.push(item_salida);
+                var vista_item = new VistaItemEnProceso(item_salida);
+                vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));
+                popEntrada.cerrar();  
+                Vx.send({
+                    tipoDeMensaje:"amz.actualizarProceso", 
+                    proceso:_this.proceso
+                });
             });
         });
 	},
@@ -55,8 +65,18 @@ var PantallaEdicionProceso = {
 		this.proceso = proceso;
 		this.cb_cerrar = cb_cerrar;
 		var _this = this;
-		this.ui.show();
+        this.ui.find("#contenedor_items_entrada_proceso").empty();
+        this.ui.find("#contenedor_items_salida_proceso").empty();		
 		this.txt_tipo_proceso.val(proceso.tipo);
         this.ctrl_fecha.val(proceso.fecha);
+        _.forEach(proceso.itemsEntrada, function(item_entrada){
+            var vista_item = new VistaItemEnProceso(item_entrada);
+            vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
+        });
+        _.forEach(proceso.itemsSalida, function(item_salida){
+            var vista_item = new VistaItemEnProceso(item_salida);
+            vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));
+        });
+        this.ui.show();
 	}
 };

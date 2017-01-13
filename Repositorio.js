@@ -31,7 +31,7 @@ var Repositorio = {
 		});	
 		Vx.when({tipoDeMensaje: "amz.actualizarProceso"}, function(mensaje){
 			var proceso = _.findWhere(Datos.procesos, {id:mensaje.proceso.id});
-			_.extend(proceso, mensaje.proceso);
+			proceso = mensaje.proceso;
             localStorage.setItem("DatosAMZ", JSON.stringify(Datos));
 		});	
         
