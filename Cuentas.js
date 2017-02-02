@@ -5,6 +5,5 @@ $(function(){
 	PantallaProcesos.start();	
 	PantallaEdicionProceso.start();
     PantallaInventario.start();	
-	PantallaEdicionItemInventario.start();
     BarraSuperior.start();
 });

@@ -1,6 +1,7 @@
 var PantallaPopUp = function(elemento_dibujable){
     var _this = this;
-    this.ui = $(".pop_up").clone();
+    this.elementoDibujable = elemento_dibujable;
+    this.ui = $("#plantillas .pop_up").clone();
     this.ui.find("#btn_cerrar").click(function(){
         _this.cerrar();
     });
@@ -10,5 +11,6 @@ var PantallaPopUp = function(elemento_dibujable){
 };
 
 PantallaPopUp.prototype.cerrar = function(){
+    this.elementoDibujable.alCerrar();
     this.ui.remove();       
 };

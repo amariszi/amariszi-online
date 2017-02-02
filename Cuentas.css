@@ -71,7 +71,7 @@ html{
     font-weight: bold;
     background-color: red;
     text-align: center;
-    /* vertical-align: top; */
+    z-index: 1;
     cursor: pointer;
     padding-top: -10px;
 }

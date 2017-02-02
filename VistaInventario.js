@@ -1,5 +1,6 @@
-var VistaInventario = function(){
+var VistaInventario = function(cb_cerrar){
     this.ui = $(".vista_inventario").clone();
+    this.alCerrar = cb_cerrar || function(){};
     this.alSeleccionar_vEventos = [];
     this.dibujar();
     this.ui.find("#btn_agregar_item").click(function(){
