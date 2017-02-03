@@ -8,6 +8,11 @@
     bottom: 0px;
 }
 
+#pantalla_edicion_proceso .btn_agregar{
+        z-index:1;
+    
+}
+
 #txt_tipo_proceso{
     position: absolute;
     left: 10%;
