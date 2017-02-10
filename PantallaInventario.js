@@ -1,12 +1,12 @@
 var PantallaInventario = {
 	start: function(){
         var _this = this;
-        this.ui = $("#pantalla_inventario");
-        var vista_inventario = new VistaInventario();
-        vista_inventario.dibujarEn(this.ui);
-        vista_inventario.alSeleccionar(function(item){
+        this.ui = $("#pantalla_procesos");
+        var vista_procesos = new VistaProcesos();
+        vista_procesos.dibujarEn(this.ui);
+        vista_procesos.alSeleccionar(function(item){
             var vista_edicion_item_inventario = new VistaEdicionItemInventario(item,function(){
-                vista_inventario.dibujar();
+                vista_procesos.dibujar();
             } );
             var pop = new PantallaPopUp(vista_edicion_item_inventario);
         });

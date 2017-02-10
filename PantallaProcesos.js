@@ -1,45 +1,14 @@
 var PantallaProcesos = {
 	start: function(){
 		var _this = this;
-		this.dibujar();
-		$("#btn_agregar_proceso").click(function(){
-			var proceso = {
-                tipo:"nuevo",
-                itemsEntrada:[]    
-            };
-			Vx.send({
-				tipoDeMensaje: "amz.agregarProceso",
-				proceso: proceso
-			}, function(respuesta){
-				_this.dibujarProceso(proceso);
-				PantallaEdicionProceso.dibujar(proceso, function(){
-					_this.dibujar();
-				});
-			});
-		});
-	},
-	dibujar: function(filtro){
-		var _this = this;
-		$("#listado_procesos").empty();
-		Vx.send({
-			tipoDeMensaje: "amz.buscarProcesos",
-			filtro: filtro
-		}, function(respuesta){
-			_.forEach(respuesta.procesos, function(proceso){
-				_this.dibujarProceso(proceso);
-			});
-		});
-	},
-	dibujarProceso: function(proceso){
-        var _this = this;
-		var vista_proceso = $("#plantillas .vista_proceso").clone();
-		vista_proceso.find("#tipo").text(proceso.tipo);
-		vista_proceso.find("#fecha").text(proceso.fecha);
-		$("#listado_procesos").append(vista_proceso);
-        vista_proceso.click(function(){
-            PantallaEdicionProceso.dibujar(proceso, function(){
-                _this.dibujar();
-            });
+        this.ui = $("#pantalla_procesos");
+        var vista_procesos = new VistaProcesos();
+        vista_procesos.dibujarEn(this.ui);
+        vista_procesos.alSeleccionar(function(proceso){
+            var vista_edicion_proceso = new VistaEdicionProceso(proceso,function(){
+                vista_procesos.dibujar();
+            } );
+            var pop = new PantallaPopUp(vista_edicion_proceso);
         });
 	}
 };

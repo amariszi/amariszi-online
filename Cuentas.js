@@ -3,7 +3,6 @@ $(function(){
 	Vx.verbose = true;
 	Vx.when({tipoDeMensaje:"vortex.debug.error"}, function(m){console.log(m);})    
 	PantallaProcesos.start();	
-	PantallaEdicionProceso.start();
     PantallaInventario.start();	
     BarraSuperior.start();
 });

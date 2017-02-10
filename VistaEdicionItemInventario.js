@@ -40,6 +40,25 @@ var VistaEdicionItemInventario = function(item, cb_cerrar){
     this.ctrl_unidad.val(item.unidad);
 };
     
+VistaEdicionItemInventario.prototype.dibujar = function(proceso, cb_cerrar){
+    this.proceso = proceso;
+    this.cb_cerrar = cb_cerrar;
+    var _this = this;
+    this.ui.find("#contenedor_items_entrada_proceso").empty();
+    this.ui.find("#contenedor_items_salida_proceso").empty();		
+    this.txt_tipo_proceso.val(proceso.tipo);
+    this.ctrl_fecha.val(proceso.fecha);
+    _.forEach(proceso.itemsEntrada, function(item_entrada){
+        var vista_item = new VistaItemEnProceso(item_entrada);
+        vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
+    });
+    _.forEach(proceso.itemsSalida, function(item_salida){
+        var vista_item = new VistaItemEnProceso(item_salida);
+        vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));
+    });
+    this.ui.show();
+};
+
 VistaEdicionItemInventario.prototype.dibujarEn = function(contenedor){
     contenedor.append(this.ui);
 };

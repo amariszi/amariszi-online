@@ -22,35 +22,9 @@
             <div id="titulo_inventario" class="titulo"> Inventario</div>
         </div>
 		<div id=pantalla_procesos class=pantalla>
-			<div id="listado_procesos" class=listado> 
-			</div>
-            <div id="btn_agregar_proceso" class="btn_agregar" type="button">+</div>
+			
 		</div>
-		<div id="pantalla_edicion_proceso" class="pantalla">
-			<div id=barra_superior_proceso class="barra_superior alto_pulgar"> 
-				<input id=txt_tipo_proceso placeholder="PROCESO" type="text">
-				<div id="btn_cerrar" class="btn_cerrar" type="button">x</div>
-			</div>
-            <div id="contenedor_atributos_proceso">
-                <div id="fecha" class="atributo_editable">
-                    Fecha:
-                </div>                
-                <div id=panel_entrada_proceso>
-                    <div id="titulo_panel_entrada">Entrada</div>
-                    <div id="btn_agregar_item_a_entrada_proceso" class="btn_agregar" type="button">+</div>
-                    <div id="contenedor_items_entrada_proceso">
-                        
-                    </div>
-                </div>
-                <div id=panel_salida_proceso>
-                    <div id="titulo_panel_salida">Salida</div>
-                    <div id="btn_agregar_item_a_salida_proceso" class="btn_agregar" type="button">+</div>
-                    <div id="contenedor_items_salida_proceso">
-                        
-                    </div>
-                </div>                
-            </div>        
-		</div>
+		
         <div id=pantalla_inventario class=pantalla>
 			
 		</div>        
@@ -87,6 +61,12 @@
             <div id="btn_agregar_item" class="btn_agregar" type="button">+</div>
         </div>
         
+        <div class="vista_procesos">
+            <div id="listado_procesos" class=listado> 
+			</div>
+            <div id="btn_agregar_proceso" class="btn_agregar" type="button">+</div>
+        </div>        
+        
         <div class=vista_edicion_item_inventario>
 			<div id=barra_superior_item_inventario class="barra_superior alto_pulgar"> 
 				<input id=txt_tipo_item_inventario placeholder="ITEM" type="text">
@@ -99,6 +79,31 @@
                     </div>
                 </div>
 			</div>
+		</div>
+        
+        <div id="vista_edicion_proceso" class="pantalla">
+			<div id=barra_superior_proceso class="barra_superior alto_pulgar"> 
+				<input id=txt_tipo_proceso placeholder="PROCESO" type="text">
+			</div>
+            <div id="contenedor_atributos_proceso">
+                <div id="fecha" class="atributo_editable">
+                    Fecha:
+                </div>                
+                <div id=panel_entrada_proceso>
+                    <div id="titulo_panel_entrada">Entrada</div>
+                    <div id="btn_agregar_item_a_entrada_proceso" class="btn_agregar" type="button">+</div>
+                    <div id="contenedor_items_entrada_proceso">
+                        
+                    </div>
+                </div>
+                <div id=panel_salida_proceso>
+                    <div id="titulo_panel_salida">Salida</div>
+                    <div id="btn_agregar_item_a_salida_proceso" class="btn_agregar" type="button">+</div>
+                    <div id="contenedor_items_salida_proceso">
+                        
+                    </div>
+                </div>                
+            </div>        
 		</div>
 	</div>
 	<script type="text/javascript" src="jquery-1.10.2.min.js"></script>
@@ -123,4 +128,6 @@
     <script type="text/javascript" src="VistaInventario.js"></script> 
     <script type="text/javascript" src="VistaEdicionItemInventario.js"></script> 
     <script type="text/javascript" src="VistaItemEnProceso.js"></script> 
+    <script type="text/javascript" src="VistaProcesos.js"></script> 
+    <script type="text/javascript" src="VistaEdicionProceso.js"></script> 
 </html>

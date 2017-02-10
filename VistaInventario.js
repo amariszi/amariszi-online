@@ -1,5 +1,5 @@
 var VistaInventario = function(cb_cerrar){
-    this.ui = $(".vista_inventario").clone();
+    this.ui = $("#plantillas .vista_inventario").clone();
     this.alCerrar = cb_cerrar || function(){};
     this.alSeleccionar_vEventos = [];
     this.dibujar();
