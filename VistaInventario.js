@@ -1,4 +1,5 @@
 var VistaInventario = function(cb_cerrar){
+    var _this = this;
     this.ui = $("#plantillas .vista_inventario").clone();
     this.alCerrar = cb_cerrar || function(){};
     this.alSeleccionar_vEventos = [];
@@ -10,9 +11,10 @@ var VistaInventario = function(cb_cerrar){
             item: item
         }, function(respuesta){
             _this.dibujarItem(item);
-            PantallaEdicionItemInventario.dibujar(item, function(){
+            var vista_edicion_item_inventario = new VistaEdicionItemInventario(item,function(){
                 _this.dibujar();
-            });
+            } );
+            var pop = new PantallaPopUp(vista_edicion_item_inventario);
         });
     });
 };

@@ -59,6 +59,9 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
         });
     });
     
+    this.ui.find("#panel_entrada_proceso").append(this.ui.find("#btn_agregar_item_a_entrada_proceso")); //para que queden los botones arriba
+    this.ui.find("#panel_salida_proceso").append(this.ui.find("#btn_agregar_item_a_salida_proceso"));
+        
     this.ui.find("#contenedor_items_entrada_proceso").empty();
     this.ui.find("#contenedor_items_salida_proceso").empty();		
     this.txt_tipo_proceso.val(this.proceso.tipo);
@@ -73,5 +76,9 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
     });
     this.ui.show();
     
+};
+
+VistaEdicionProceso.prototype.dibujarEn = function(contenedor){
+    contenedor.append(this.ui);
 };
 
