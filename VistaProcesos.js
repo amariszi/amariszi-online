@@ -1,6 +1,6 @@
 var VistaProcesos = function(cb_cerrar){
+    $.extend(this, new Vista("vista_procesos"));
     var _this = this;
-    this.ui = $("#plantillas .vista_procesos").clone();
     this.alCerrar = cb_cerrar || function(){};
     this.alSeleccionar_vEventos = [];
     this.dibujar();
@@ -54,8 +54,4 @@ VistaProcesos.prototype.dibujarProceso = function(proceso){
     vista_proceso.click(function(){
         _this.alSeleccionar(proceso);
     });
-};
-
-VistaProcesos.prototype.dibujarEn = function(un_panel){
-    un_panel.append(this.ui);
 };

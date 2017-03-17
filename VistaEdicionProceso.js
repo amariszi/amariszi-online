@@ -1,8 +1,8 @@
 var VistaEdicionProceso = function(proceso, cb_cerrar){
+    $.extend(this, new Vista("vista_edicion_proceso"));
     var _this = this;
     this.proceso = proceso;
-    this.alCerrar = cb_cerrar;
-    this.ui = $("#plantillas .vista_edicion_proceso").clone();		
+    this.alCerrar = cb_cerrar;	
     
     this.txt_tipo_proceso = this.ui.find("#txt_tipo_proceso");
     this.txt_tipo_proceso.change(function(){
@@ -25,12 +25,8 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
         var vista_inventario = new VistaInventario();
         var popEntrada = new PantallaPopUp(vista_inventario);
         vista_inventario.alSeleccionar(function(item){
-            var item_entrada = {
-                item: item,
-                cantidad: 0
-            };
-            _this.proceso.itemsEntrada.push(item_entrada);
-            var vista_item = new VistaItemEnProceso(item_entrada);
+            _this.proceso.itemsEntrada.push(item);
+            var vista_item = new VistaItemInventarioEnLista(item);
             vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
             popEntrada.cerrar();  
             Vx.send({
@@ -44,12 +40,8 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
         var vista_inventario = new VistaInventario();
         var popEntrada = new PantallaPopUp(vista_inventario);
         vista_inventario.alSeleccionar(function(item){
-            var item_salida = {
-                item: item,
-                cantidad: 0
-            };
-            _this.proceso.itemsSalida.push(item_salida);
-            var vista_item = new VistaItemEnProceso(item_salida);
+            _this.proceso.itemsSalida.push(item);
+            var vista_item = new VistaItemInventarioEnLista(item);
             vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));
             popEntrada.cerrar();  
             Vx.send({
@@ -66,19 +58,14 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
     this.ui.find("#contenedor_items_salida_proceso").empty();		
     this.txt_tipo_proceso.val(this.proceso.tipo);
     this.ctrl_fecha.val(this.proceso.fecha);
-    _.forEach(this.proceso.itemsEntrada, function(item_entrada){
-        var vista_item = new VistaItemEnProceso(item_entrada);
+    _.forEach(this.proceso.itemsEntrada, function(item){
+        var vista_item = new VistaItemInventarioEnLista(item);
         vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
     });
-    _.forEach(this.proceso.itemsSalida, function(item_salida){
-        var vista_item = new VistaItemEnProceso(item_salida);
+    _.forEach(this.proceso.itemsSalida, function(item){
+        var vista_item = new VistaItemInventarioEnLista(item);
         vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));
     });
     this.ui.show();
     
 };
-
-VistaEdicionProceso.prototype.dibujarEn = function(contenedor){
-    contenedor.append(this.ui);
-};
-

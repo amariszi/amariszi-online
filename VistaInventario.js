@@ -1,22 +1,9 @@
 var VistaInventario = function(cb_cerrar){
+    $.extend(this, new Vista("vista_inventario"));
     var _this = this;
-    this.ui = $("#plantillas .vista_inventario").clone();
     this.alCerrar = cb_cerrar || function(){};
     this.alSeleccionar_vEventos = [];
     this.dibujar();
-    this.ui.find("#btn_agregar_item").click(function(){
-        var item = {tipo:"nuevo"};
-        Vx.send({
-            tipoDeMensaje: "amz.agregarItemInventario",
-            item: item
-        }, function(respuesta){
-            _this.dibujarItem(item);
-            var vista_edicion_item_inventario = new VistaEdicionItemInventario(item,function(){
-                _this.dibujar();
-            } );
-            var pop = new PantallaPopUp(vista_edicion_item_inventario);
-        });
-    });
 };
 
 VistaInventario.prototype.alSeleccionar = function(param){
@@ -44,14 +31,9 @@ VistaInventario.prototype.dibujar = function(filtro){
 
 VistaInventario.prototype.dibujarItem = function(item){
     var _this = this;
-    var vista_item = $("#plantillas .vista_item_inventario").clone();
-    vista_item.find("#tipo").text(item.tipo);
-    this.ui.find("#listado_items_inventario").append(vista_item);
-    vista_item.click(function(){
+    
+    var vista_item = new VistaItemInventarioEnLista(item, function(){
         _this.alSeleccionar(item);
     });
-};
-
-VistaInventario.prototype.dibujarEn = function(un_panel){
-    un_panel.append(this.ui);
+    vista_item.dibujarEn(this.ui.find("#listado_items_inventario"));
 };
