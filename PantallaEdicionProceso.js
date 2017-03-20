@@ -27,12 +27,8 @@ var PantallaEdicionProceso = {
             var vista_inventario = new VistaInventario();
             var popEntrada = new PantallaPopUp(vista_inventario);
             vista_inventario.alSeleccionar(function(item){
-                var item_entrada = {
-                    item: item,
-                    cantidad: 0
-                };
-                _this.proceso.itemsEntrada.push(item_entrada);
-                var vista_item = new VistaItemEnProceso(item_entrada);
+                _this.proceso.itemsEntrada.push(item);
+                var vista_item = new VistaItemInventarioEnLista(item);
                 vista_item.dibujarEn(_this.ui.find("#contenedor_items_entrada_proceso"));
                 popEntrada.cerrar();  
                 Vx.send({
@@ -46,12 +42,8 @@ var PantallaEdicionProceso = {
             var vista_inventario = new VistaInventario();
             var popEntrada = new PantallaPopUp(vista_inventario);
             vista_inventario.alSeleccionar(function(item){
-                var item_salida = {
-                    item: item,
-                    cantidad: 0
-                };
-                _this.proceso.itemsSalida.push(item_salida);
-                var vista_item = new VistaItemEnProceso(item_salida);
+                _this.proceso.itemsSalida.push(item);
+                var vista_item = new VistaItemEnProceso(item);
                 vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));
                 popEntrada.cerrar();  
                 Vx.send({

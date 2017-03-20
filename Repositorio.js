@@ -1,15 +1,15 @@
 var Datos = {
 	procesos:[
-		{id:1, tipo:"compra", fecha:"20/11/2015", itemsEntrada:[], itemsSalida:[]},
-		{id:2, tipo:"fresado canaletas", fecha:"21/11/2015", itemsEntrada:[], itemsSalida:[]},
-		{id:3, tipo:"pintado", fecha:"22/11/2015", itemsEntrada:[], itemsSalida:[]},
-		{id:4, tipo:"venta", fecha:"23/11/2015", itemsEntrada:[], itemsSalida:[]}
+		//{id:1, tipo:"compra", fecha:"20/11/2015", itemsEntrada:[], itemsSalida:[]},
+		//{id:2, tipo:"fresado canaletas", fecha:"21/11/2015", itemsEntrada:[], itemsSalida:[]},
+		//{id:3, tipo:"pintado", fecha:"22/11/2015", itemsEntrada:[], itemsSalida:[]},
+		//{id:4, tipo:"venta", fecha:"23/11/2015", itemsEntrada:[], itemsSalida:[]}
 	],
     itemsInventario:[
-		{id:1, tipo:"tablero valija", cantidad:1, unidad:"un"},
-		{id:2, tipo:"tablero lite A4", cantidad:1, unidad:"un"},
-		{id:3, tipo:"tornillo negro corto", cantidad:100, unidad:"un"},
-		{id:4, tipo:"pintura", cantidad:4, unidad:"litros"}
+		//{id:1, tipo:"tablero valija", cantidad:1, unidad:"un"},
+		//{id:2, tipo:"tablero lite A4", cantidad:1, unidad:"un"},
+		//{id:3, tipo:"tornillo negro corto", cantidad:100, unidad:"un"},
+		//{id:4, tipo:"pintura", cantidad:4, unidad:"litros"}
 	]	
 }
 

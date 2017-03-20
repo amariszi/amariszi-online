@@ -7,17 +7,17 @@ var VistaProcesos = function(cb_cerrar){
     
     this.ui.find("#btn_agregar_proceso").click(function(){
         var proceso = {
-            tipo:"nuevo",
-            itemsEntrada:[]    
+            tipo:"",
+            itemsEntrada:[],
+            itemsSalida:[] 
         };
         Vx.send({
             tipoDeMensaje: "amz.agregarProceso",
             proceso: proceso
         }, function(respuesta){
+            proceso.id = respuesta.idProceso;
             _this.dibujarProceso(proceso);
-            var vista_edicion_proceso = new VistaEdicionProceso(proceso,function(){
-                _this.dibujar();
-            } );
+            _this.alSeleccionar(proceso);
         });
     });
 };
