@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="PantallaEdicionItemInventario.css">
 		<link rel="stylesheet" href="AtributoEditable.css">
 		<link rel="stylesheet" href="VistaItemInventarioEnLista.css">
+		<link rel="stylesheet" href="VistaNuevoItemInventario.css">
 		<link href="select2.min.css" rel="stylesheet" />
         <link href="pickdate_v3.5.6/themes/classic.css" rel="stylesheet" />
         <link href="pickdate_v3.5.6/themes/classic.date.css" rel="stylesheet" />
@@ -78,6 +79,23 @@
 			</div>
 		</div>
         
+        <div class="vista_nuevo_item_inventario">
+			<div id=barra_superior_item_inventario class="barra_superior alto_pulgar"> 
+				<input id=txt_tipo_item_inventario placeholder="ITEM" type="text">                
+                <div id="contenedor_atributos_item_inventario">
+                    <div id="tipo" class="atributo_editable">
+                        Tipo:
+                    </div>
+                    <div id="cantidad" class="atributo_editable">
+                        Cantidad:
+                    </div>
+                    <div id="unidad" class="atributo_editable">
+                        Unidad:
+                    </div>
+                </div>
+			</div>
+		</div>
+        
         <div class="vista_edicion_proceso" class="pantalla">
 			<div id=barra_superior_proceso class="barra_superior alto_pulgar"> 
 				<input id=txt_tipo_proceso placeholder="PROCESO" type="text">
@@ -128,4 +146,5 @@
     <script type="text/javascript" src="VistaEdicionProceso.js"></script> 
     <script type="text/javascript" src="Vista.js"></script> 
     <script type="text/javascript" src="VistaItemInventarioEnLista.js"></script> 
+    <script type="text/javascript" src="VistaNuevoItemInventario.js"></script> 
 </html>

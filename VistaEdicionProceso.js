@@ -2,7 +2,9 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
     $.extend(this, new Vista("vista_edicion_proceso"));
     var _this = this;
     this.proceso = proceso;
-    this.alCerrar = cb_cerrar;	
+    this.nuevoEvento("alCerrar");
+    
+    this.alCerrar(cb_cerrar);
     
     this.txt_tipo_proceso = this.ui.find("#txt_tipo_proceso");
     this.txt_tipo_proceso.change(function(){
@@ -37,9 +39,9 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
     });
     
     this.ui.find("#btn_agregar_item_a_salida_proceso").click(function(){
-        var vista_inventario = new VistaInventario();
-        var popEntrada = new PantallaPopUp(vista_inventario);
-        vista_inventario.alSeleccionar(function(item){
+        var vista_nuevo_item = new VistaNuevoItemInventario();
+        var popEntrada = new PantallaPopUp(vista_nuevo_item);
+        vista_nuevo_item.alCrear(function(item){
             _this.proceso.itemsSalida.push(item);
             var vista_item = new VistaItemInventarioEnLista(item);
             vista_item.dibujarEn(_this.ui.find("#contenedor_items_salida_proceso"));

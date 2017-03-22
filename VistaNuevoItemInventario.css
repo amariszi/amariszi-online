@@ -1,0 +1,21 @@
+.vista_item_inventario_en_lista{
+    position: relative;
+}
+
+.vista_item_inventario_en_lista #tipo{
+    position: absolute;
+    left: 10px;
+    top: 3px;
+}
+
+.vista_item_inventario_en_lista #cantidad{
+    position: absolute;
+    right: 10px;
+    top: 3px;        
+}
+
+.vista_item_inventario_en_lista #cantidad{
+    position: absolute;
+    right: 10px;
+    top: 3px;        
+}

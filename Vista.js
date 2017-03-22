@@ -5,3 +5,16 @@ var Vista = function(clase_plantilla){
 Vista.prototype.dibujarEn = function(un_panel){
     un_panel.append(this.ui);
 };
+
+Vista.prototype.nuevoEvento = function(nombre_evento){
+    this[nombre_evento + "_callbacks"] = [];
+    this[nombre_evento] = function(param){
+        if(typeof param == "function"){
+            this[nombre_evento + "_callbacks"].push(param);
+        }else{
+            _.each(this[nombre_evento + "_callbacks"], function(evento){
+                evento(param);
+            });
+        }   
+    };
+};
