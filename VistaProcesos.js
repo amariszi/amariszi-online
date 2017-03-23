@@ -33,12 +33,12 @@ VistaProcesos.prototype.alSeleccionar = function(param){
 };    
 
 VistaProcesos.prototype.dibujar = function(filtro){
-    var _this = this;
-    this.ui.find("#listado_procesos").empty();
+    var _this = this;    
     Vx.send({
         tipoDeMensaje: "amz.buscarProcesos",
         filtro: filtro
     }, function(respuesta){
+        _this.ui.find("#listado_procesos").empty();
         _.forEach(respuesta.procesos, function(proceso){
             _this.dibujarProceso(proceso);
         });

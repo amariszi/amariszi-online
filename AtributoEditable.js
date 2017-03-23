@@ -1,6 +1,6 @@
-var AtributoEditable = function(ui_original, al_modificar, tipo){
+var AtributoEditable = function(ui_original, al_modificar, opt){
     var self = this;
-	
+	self.alModificar = al_modificar;
 	self.ui = $('#plantilla_AtributoEditable')
 					.clone()
 					.attr('id', ui_original.attr('id'));
@@ -14,16 +14,13 @@ var AtributoEditable = function(ui_original, al_modificar, tipo){
 	self.lbl = self.ui.find(".lbl_valor_atributo");
     self.txt = self.ui.find(".txt_valor_atributo");
     
-    if(tipo == "fecha"){
+    if(opt.tipo == "fecha"){
         self.txt.pickadate({
             format: 'dd/mm/yyyy',
             formatSubmit: 'dd/mm/yyyy'
         });
         self.txt.change('keypress', function(e) {
-            self.lbl.show();
-            self.txt.hide();
-            self.lbl.text(self.txt.val());
-            al_modificar(self.txt.val());            
+            self.terminarEdicion();
         });
         new Hammer(self.ui[0]).on('press', function(ev) {
             self.lbl.hide();
@@ -35,19 +32,17 @@ var AtributoEditable = function(ui_original, al_modificar, tipo){
         self.txt.bind('keypress', function(e) {
             var code = e.keyCode || e.which;
             if(code==13){
-                self.lbl.show();
-                self.txt.hide();
-                self.lbl.text(self.txt.val());
-                al_modificar(self.txt.val());            
+                self.terminarEdicion();     
             }
         });
         self.txt.blur(function(){
-            self.lbl.show();
-            self.txt.hide();
-            self.lbl.text(self.txt.val());
-            al_modificar(self.txt.val());         
+            self.terminarEdicion();
         });
-        new Hammer(self.ui[0]).on('press', function(ev) {
+        
+        var modo_edicion = 'press';
+        if(opt.edicionRapida) modo_edicion = 'tap';
+            
+        new Hammer(self.ui[0]).on(modo_edicion, function(ev) {
             self.lbl.hide();
             self.txt.show();
             self.txt.focus();
@@ -57,6 +52,12 @@ var AtributoEditable = function(ui_original, al_modificar, tipo){
 };
 
 AtributoEditable.prototype = {
+    terminarEdicion: function(){
+        this.lbl.show();
+        this.txt.hide();
+        this.lbl.text(this.txt.val());
+        this.alModificar(this.txt.val());        
+    },
 	val: function(valor){
 		this.lbl.text(valor);
 		this.txt.val(valor);

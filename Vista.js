@@ -1,5 +1,6 @@
 var Vista = function(clase_plantilla){
     this.ui = $("#plantillas ." + clase_plantilla).clone();
+    this.nuevoEvento("alCerrar");    
 };
 
 Vista.prototype.dibujarEn = function(un_panel){

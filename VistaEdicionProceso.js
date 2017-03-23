@@ -21,7 +21,7 @@ var VistaEdicionProceso = function(proceso, cb_cerrar){
             tipoDeMensaje:"amz.actualizarProceso", 
             proceso:_this.proceso
         });
-    }, "fecha");
+    }, {tipo:"fecha"});
     
     this.ui.find("#btn_agregar_item_a_entrada_proceso").click(function(){
         var vista_inventario = new VistaInventario();
