@@ -100,7 +100,7 @@
        * Load the API and make an API call.  Display the results on the screen.
        */
       function callScriptFunction() {
-        var scriptId = "<ENTER_YOUR_SCRIPT_ID_HERE>";
+        var scriptId = "AKfycbxeqpT8Y2w1YLC4oLh43tTQ91FJeRECnZjY6XrCbORCB8koyY8";
 
         // Call the Execution API run method
         //   'scriptId' is the URL parameter that states what script to run
@@ -109,7 +109,7 @@
         gapi.client.script.scripts.run({
           'scriptId': scriptId,
           'resource': {
-            'function': 'getFoldersUnderRoot'
+            'function': 'doGet'
           }
         }).then(function(resp) {
           var result = resp.result;
