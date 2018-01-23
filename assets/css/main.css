@@ -15,6 +15,13 @@
 /* nuestro*/
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300');
 
+.link_comprar{
+     position: absolute;
+    right: 22px;
+    top: 65px;
+    font-size: 20px;   
+}
+
 .separador{
     background: #e44c65;
     content: '';
@@ -24,6 +31,11 @@
     margin: 0 auto;
     margin-top: 90px;
     margin-bottom: 75px;    
+}
+
+#galeria_home{
+    width: 100%;
+    
 }
 
 .gallery {
